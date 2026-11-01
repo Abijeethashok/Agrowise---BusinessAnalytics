@@ -1,0 +1,8 @@
+feature,groups_passing_shapiro,groups_total,share_normal,normality_ok,levene_stat,levene_p,equal_variance_ok,max_to_min_variance_ratio
+N,0,22,0.0,False,0.765604,0.764664,True,1.366346
+P,0,22,0.0,False,0.812244,0.707178,True,1.402324
+K,0,22,0.0,False,0.932604,0.547854,True,1.443748
+temperature,0,22,0.0,False,110.215507,0.0,False,138.53601
+humidity,0,22,0.0,False,87.72998,0.0,False,86.751301
+ph,0,22,0.0,False,96.161841,0.0,False,164.43129
+rainfall,0,22,0.0,False,162.131689,0.0,False,538.905845

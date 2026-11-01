@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% set active_page = 'analytics' %}
+{% block title %}Business Analytics{% endblock %}
+{% block content %}
+<div id="analytics-root">
+  <div class="container">
+    <div class="page-head">
+      <h1>Business analytics</h1>
+      <p class="text-muted-agro mb-0">Every table and chart below is drawn from the saved analysis and model results, not typed in by hand.</p>
+    </div>
+  </div>
+
+  <nav class="subnav" aria-label="Dashboard sections">
+    <div class="container">
+      <a href="#sec-overview">Overview</a>
+      <a href="#sec-data">Data</a>
+      <a href="#sec-dist">Distributions</a>
+      <a href="#sec-corr">Correlation</a>
+      <a href="#sec-compare">Crop comparison</a>
+      <a href="#sec-tests">Statistical tests</a>
+      <a href="#sec-models">Models</a>
+    </div>
+  </nav>
+
+  <div class="container pb-4">
+    <div id="ov-error" class="alert alert-warning" role="alert" hidden></div>
+    <div id="chart-warning" class="alert alert-warning" role="alert" hidden></div>
+
+    <!-- Overview -->
+    <section class="dash-section" id="sec-overview">
+      <h2>Overview</h2>
+      <div class="row g-3 mt-1">
+        <div class="col-6 col-md-3"><div class="card-soft kpi"><strong data-ov="rows_clean" data-fmt="int">…</strong><span>records after cleaning</span></div></div>
+        <div class="col-6 col-md-3"><div class="card-soft kpi"><strong data-ov="n_crops" data-fmt="int">…</strong><span>crop classes</span></div></div>
+        <div class="col-6 col-md-3"><div class="card-soft kpi"><strong data-ov="missing_cells" data-fmt="int">…</strong><span>missing values</span></div></div>
+        <div class="col-6 col-md-3"><div class="card-soft kpi"><strong data-ov="duplicate_rows" data-fmt="int">…</strong><span>duplicate rows</span></div></div>
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-4"><div class="card-soft kpi"><strong data-ov="selected_model">…</strong><span>selected model (chosen by cross-validation)</span></div></div>
+        <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="test_accuracy" data-fmt="pct">…</strong><span>test accuracy</span></div></div>
+        <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="test_f1_macro" data-fmt="pct">…</strong><span>test macro-F1</span></div></div>
+        <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="test_top3_accuracy" data-fmt="pct">…</strong><span>test top-3 accuracy</span></div></div>
+        <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="random_guess_baseline" data-fmt="pct">…</strong><span>random-guess baseline</span></div></div>
+      </div>
+      <p class="note mt-3">Very high scores reflect how cleanly separable the crops are in this augmented dataset. They are not a measure of accuracy on real farms; see the noise-robustness chart below.</p>
+    </section>
+
+    <!-- Data -->
+    <section class="dash-section" id="sec-data">
+      <h2>Data summary</h2>
+      <p class="dash-lead">How many records each crop has, and descriptive statistics for the seven inputs across all records.</p>
+      <div class="card-soft mb-3">
+        <h3 class="h6">Records per crop</h3>
+        <div class="chart-box"><canvas id="chart-crop-dist" role="img" aria-label="Bar chart of the number of records for each crop"></canvas></div>
+        <p class="note mt-2 mb-0" id="crop-dist-note"></p>
+      </div>
+      <div class="card-soft">
+        <h3 class="h6">Descriptive statistics (all crops pooled)</h3>
+        <div id="desc-table"><p class="note">Loading…</p></div>
+        <p class="note mb-0">Skewness above about 1 (or below -1) marks a strongly skewed variable. CV is the standard deviation as a percentage of the mean.</p>
+      </div>
+    </section>
+
+    <!-- Distributions -->
+    <section class="dash-section" id="sec-dist">
+      <h2>Distributions</h2>
+      <p class="dash-lead">Histograms pool all crops, so several humps usually reflect different crop groups rather than measurement noise.</p>
+      <div class="row g-3" id="hist-grid"><p class="note">Loading…</p></div>
+      <div class="card-soft mt-3">
+        <h3 class="h6">Outlier check (1.5 × IQR rule)</h3>
+        <div id="outlier-table"><p class="note">Loading…</p></div>
+        <p class="note mb-0">Values that look extreme across all records but are normal within their own crop are genuine crop differences, not errors. No records were removed.</p>
+      </div>
+    </section>
+
+    <!-- Correlation -->
+    <section class="dash-section" id="sec-corr">
+      <h2>Correlation</h2>
+      <p class="dash-lead">Pearson measures linear association and Spearman measures rank association. Correlations here pool all crops, so they reflect crop mix as well as relationships, and correlation does not establish causation.</p>
+      <div class="card-soft mb-3">
+        <div class="toggle-group" id="corr-toggle" role="group" aria-label="Correlation method"></div>
+        <div class="table-responsive" id="corr-heatmap"><p class="note">Loading…</p></div>
+        <div class="legend mt-2"><span><i class="lg-in" style="background:#2f6b3f"></i>positive</span><span><i class="lg-in"></i>negative</span><span>Darker cells mean stronger association.</span></div>
+      </div>
+      <div class="card-soft">
+        <h3 class="h6">Strongest pairs</h3>
+        <div id="corr-pairs"><p class="note">Loading…</p></div>
+      </div>
+    </section>
+
+    <!-- Crop comparison -->
+    <section class="dash-section" id="sec-compare">
+      <h2>Crop-wise comparison</h2>
+      <p class="dash-lead">Choose a variable to see each crop's typical range and mean.</p>
+      <div class="card-soft">
+        <div class="toggle-group" id="compare-controls" role="group" aria-label="Variable"></div>
+        <div class="chart-box chart-box-tall"><canvas id="chart-compare" role="img" aria-label="Typical range and mean of the selected variable for each crop"></canvas></div>
+        <p class="note mt-2 mb-0" id="compare-note"></p>
+      </div>
+    </section>
+
+    <!-- Statistical tests -->
+    <section class="dash-section" id="sec-tests">
+      <h2>Statistical tests</h2>
+      <p class="dash-lead" id="anova-hypotheses"></p>
+      <div class="card-soft mb-3">
+        <h3 class="h6">Differences between crops</h3>
+        <div id="anova-table"><p class="note">Loading…</p></div>
+        <p class="note">The primary test follows a fixed rule: Kruskal-Wallis when normality fails in most crop groups, Welch's ANOVA when only variances differ, classical ANOVA when both hold. With 2,200 records even small differences become significant, so look at the effect size. Tukey results are exploratory.</p>
+        <h3 class="h6 mt-3">In plain language</h3>
+        <ul class="mb-0" id="anova-text"></ul>
+      </div>
+      <div class="card-soft">
+        <h3 class="h6">Assumption checks</h3>
+        <div id="assume-table"><p class="note">Loading…</p></div>
+      </div>
+    </section>
+
+    <!-- Models -->
+    <section class="dash-section" id="sec-models">
+      <h2>Model performance</h2>
+      <p class="dash-lead">Three models were compared with 5-fold cross-validation on the training data. The held-out test set was used only for final reporting.</p>
+      <div class="card-soft mb-3">
+        <h3 class="h6">Model comparison</h3>
+        <div id="model-table"><p class="note">Loading…</p></div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-lg-6"><div class="card-soft">
+          <h3 class="h6">Macro-F1</h3>
+          <div class="chart-box"><canvas id="chart-model-f1" role="img" aria-label="Grouped bars of cross-validation and test macro-F1 for each model"></canvas></div>
+          <p class="note mt-2 mb-0" id="f1-axis-note"></p>
+        </div></div>
+        <div class="col-lg-6"><div class="card-soft">
+          <h3 class="h6">Log-loss (quality of the probability scores)</h3>
+          <div class="chart-box"><canvas id="chart-model-ll" role="img" aria-label="Grouped bars of cross-validation and test log-loss for each model"></canvas></div>
+          <p class="note mt-2 mb-0">Lower is better. Decision-tree probabilities are crude, which is why they score poorly here even when accuracy looks fine.</p>
+        </div></div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-lg-6"><div class="card-soft">
+          <h3 class="h6">Robustness to noisy inputs</h3>
+          <div class="chart-box"><canvas id="chart-robust" role="img" aria-label="Line chart of test accuracy as noise added to the inputs increases"></canvas></div>
+          <div class="note mt-2 mb-0" id="robust-note">Gaussian noise scaled by each input's standard deviation was added to the test inputs and clipped to physically valid ranges. This is a simulation, not measured field error.</div>
+        </div></div>
+        <div class="col-lg-6"><div class="card-soft">
+          <h3 class="h6">Feature importance (selected model)</h3>
+          <div class="chart-box"><canvas id="chart-importance" role="img" aria-label="Bar chart of permutation importance for each input"></canvas></div>
+          <div class="note mt-2 mb-0" id="importance-note">Permutation importance on the test set: how much accuracy drops when one input is shuffled. Correlated inputs can share importance, and a low value describes this model and dataset, not agronomy.</div>
+        </div></div>
+      </div>
+      <div class="card-soft mb-3">
+        <h3 class="h6">Confusion matrix (held-out test set)</h3>
+        <p class="note">Rows are the true crop and columns the predicted crop. Green diagonal cells are correct predictions; red cells are errors.</p>
+        <div class="table-responsive" id="cm-wrap"><p class="note">Loading…</p></div>
+        <div class="mt-3" id="cm-errors"></div>
+      </div>
+      <details class="card-soft rules">
+        <summary>Per-crop precision, recall and F1</summary>
+        <div class="mt-3" id="class-report"><p class="note">Loading…</p></div>
+      </details>
+    </section>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.js"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+{% endblock %}

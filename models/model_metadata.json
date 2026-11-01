@@ -1,0 +1,105 @@
+{
+  "features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "feature_labels": {
+    "N": "Nitrogen (N, dataset ratio)",
+    "P": "Phosphorus (P, dataset ratio)",
+    "K": "Potassium (K, dataset ratio)",
+    "temperature": "Temperature (\u00b0C)",
+    "humidity": "Relative humidity (%)",
+    "ph": "Soil pH",
+    "rainfall": "Rainfall (mm)"
+  },
+  "classes": [
+    "apple",
+    "banana",
+    "blackgram",
+    "chickpea",
+    "coconut",
+    "coffee",
+    "cotton",
+    "grapes",
+    "jute",
+    "kidneybeans",
+    "lentil",
+    "maize",
+    "mango",
+    "mothbeans",
+    "mungbean",
+    "muskmelon",
+    "orange",
+    "papaya",
+    "pigeonpeas",
+    "pomegranate",
+    "rice",
+    "watermelon"
+  ],
+  "crop_display_names": {
+    "apple": "Apple",
+    "banana": "Banana",
+    "blackgram": "Black Gram",
+    "chickpea": "Chickpea",
+    "coconut": "Coconut",
+    "coffee": "Coffee",
+    "cotton": "Cotton",
+    "grapes": "Grapes",
+    "jute": "Jute",
+    "kidneybeans": "Kidney Beans",
+    "lentil": "Lentil",
+    "maize": "Maize",
+    "mango": "Mango",
+    "mothbeans": "Moth Beans",
+    "mungbean": "Mung Bean",
+    "muskmelon": "Muskmelon",
+    "orange": "Orange",
+    "papaya": "Papaya",
+    "pigeonpeas": "Pigeon Peas",
+    "pomegranate": "Pomegranate",
+    "rice": "Rice",
+    "watermelon": "Watermelon"
+  },
+  "feature_ranges": {
+    "N": {
+      "min": 0.0,
+      "max": 140.0
+    },
+    "P": {
+      "min": 5.0,
+      "max": 145.0
+    },
+    "K": {
+      "min": 5.0,
+      "max": 205.0
+    },
+    "temperature": {
+      "min": 8.825674745,
+      "max": 43.67549305
+    },
+    "humidity": {
+      "min": 14.25803981,
+      "max": 99.98187601
+    },
+    "ph": {
+      "min": 3.504752314,
+      "max": 9.93509073
+    },
+    "rainfall": {
+      "min": 20.21126747,
+      "max": 298.5601175
+    }
+  },
+  "selected_model": "Gaussian Naive Bayes",
+  "selection_rule": "Highest mean CV macro-F1; models within 0.005 of the best are treated as tied, and the tie is broken by lowest mean CV log-loss (better probability estimates for ranking crops). The test set is not used for selection.",
+  "random_state": 42,
+  "test_size": 0.2,
+  "n_train_rows": 1760,
+  "sklearn_version": "1.9.1",
+  "trained_at": "2026-10-24T23:03:15"
+}

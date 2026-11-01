@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% set active_page = 'home' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="eyebrow">Business Analytics · Decision support for farmers</span>
+        <h1>Choose crops that fit your soil and climate.</h1>
+        <p class="lead mt-3">AgroWise compares your soil nutrients, pH, temperature, humidity and rainfall with 2,200 crop records covering 22 crops. It ranks the best-matching options and checks the crop you have in mind.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-on-dark btn-lg" href="{{ url_for('page_recommend') }}">Open the recommendation dashboard</a>
+          <a class="btn btn-outline-light-agro btn-lg" href="{{ url_for('page_about') }}">How it works</a>
+        </div>
+        <div class="hero-stats" aria-label="Dataset at a glance">
+          <div><strong>22</strong><span>crops</span></div>
+          <div><strong>7</strong><span>soil and weather inputs</span></div>
+          <div><strong>2,200</strong><span>dataset records</span></div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-card">
+          <h2>In three steps</h2>
+          <ol>
+            <li>Enter your nutrient, pH and weather values.</li>
+            <li>Optionally choose the crop you are considering.</li>
+            <li>Read the ranked crops, the support level for your choice, and how each value compares with that crop's records.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">The problem</h2>
+    <p class="section-lead">Choosing a crop without considering nutrient levels, soil pH, temperature, humidity and rainfall can lead to poor decisions and inefficient use of resources. AgroWise turns an agricultural dataset into a clear, explainable comparison, so those conditions are checked before a decision is made.</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">What AgroWise does</h2>
+    <div class="row g-4 mt-1">
+      <div class="col-md-6 col-lg-3">
+        <div class="card-soft">
+          <div class="icon-circle" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg></div>
+          <h3>Crop recommendation</h3>
+          <p>A machine-learning model trained on the dataset ranks the three crops whose records best match your conditions.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-soft">
+          <div class="icon-circle" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Selected-crop check</h3>
+          <p>See whether the evidence gives strong, moderate or low support for the crop you chose, and which better-matching alternatives exist.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-soft">
+          <div class="icon-circle" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+          <h3>Reference profiles</h3>
+          <p>Each of your seven values is compared with the crop's typical range in the data, so you can see exactly where it differs.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-soft">
+          <div class="icon-circle" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <h3>Analytics dashboard</h3>
+          <p>Statistical tests, correlations and model performance, all calculated from the real dataset and saved results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout">
+      <h3>Read the scores honestly</h3>
+      <p class="mb-2">Scores describe how closely your conditions resemble crop records in the dataset. They are <strong>not</strong> the probability that a crop will grow successfully or give a particular yield.</p>
+      <p class="mb-0">The dataset contains no soil texture, growth stages, yields or fertilizer quantities, so AgroWise does not give those. It is a decision-support prototype, not agronomic advice.</p>
+    </div>
+    <div class="text-center mt-5">
+      <a class="btn btn-agro btn-lg" href="{{ url_for('page_recommend') }}">Try it with your field conditions</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

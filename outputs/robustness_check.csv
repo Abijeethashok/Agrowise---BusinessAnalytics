@@ -1,0 +1,13 @@
+noise_level_x_feature_std,model,accuracy,f1_macro
+0.0,Decision Tree,0.979545,0.979423
+0.0,Gaussian Naive Bayes,0.995455,0.995443
+0.0,Random Forest,0.993182,0.993178
+0.1,Decision Tree,0.902273,0.900078
+0.1,Gaussian Naive Bayes,0.984091,0.984121
+0.1,Random Forest,0.968182,0.967751
+0.25,Decision Tree,0.715909,0.712651
+0.25,Gaussian Naive Bayes,0.813636,0.806727
+0.25,Random Forest,0.815909,0.812021
+0.5,Decision Tree,0.427273,0.414953
+0.5,Gaussian Naive Bayes,0.527273,0.521417
+0.5,Random Forest,0.561364,0.549214

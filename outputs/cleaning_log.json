@@ -1,0 +1,32 @@
+{
+  "rows_raw": 2200,
+  "rows_dropped_missing": 0,
+  "rows_dropped_duplicate": 0,
+  "rows_dropped_invalid_range": 0,
+  "rows_clean": 2200,
+  "n_classes": 22,
+  "class_counts": {
+    "rice": 100,
+    "maize": 100,
+    "chickpea": 100,
+    "kidneybeans": 100,
+    "pigeonpeas": 100,
+    "mothbeans": 100,
+    "mungbean": 100,
+    "blackgram": 100,
+    "lentil": 100,
+    "pomegranate": 100,
+    "banana": 100,
+    "mango": 100,
+    "grapes": 100,
+    "watermelon": 100,
+    "muskmelon": 100,
+    "apple": 100,
+    "orange": 100,
+    "papaya": 100,
+    "coconut": 100,
+    "cotton": 100,
+    "jute": 100,
+    "coffee": 100
+  }
+}

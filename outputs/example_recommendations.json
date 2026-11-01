@@ -1,0 +1,2540 @@
+{
+  "typical_apple_select_apple": {
+    "inputs": {
+      "N": 24.0,
+      "P": 136.5,
+      "K": 200.0,
+      "temperature": 22.6283,
+      "humidity": 92.4165,
+      "ph": 5.8858,
+      "rainfall": 112.9792
+    },
+    "warnings": [],
+    "cautions": [],
+    "notes": [],
+    "model_name": "Gaussian Naive Bayes",
+    "top3": [
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 1.0,
+        "profile_fit_display": "100%",
+        "features_inside": 7,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 2,
+        "model_score": 2.384785564777325e-68,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.7142857142857143,
+        "profile_fit_display": "71%",
+        "features_inside": 5,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "banana",
+        "display": "Banana",
+        "rank": 3,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.35302344760738624,
+        "profile_fit_display": "35%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.41062654999766,
+          "humidity": 0.06053758325404379,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      }
+    ],
+    "closest_by_profile": [
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 1.0,
+        "profile_fit_display": "100%",
+        "features_inside": 7,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 2,
+        "model_score": 2.384785564777325e-68,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.7142857142857143,
+        "profile_fit_display": "71%",
+        "features_inside": 5,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "pomegranate",
+        "display": "Pomegranate",
+        "rank": 7,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6986335049673642,
+        "profile_fit_display": "70%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.89043453477155
+        }
+      }
+    ],
+    "distinguishing": [
+      {
+        "feature": "rainfall",
+        "label": "Rainfall (mm)",
+        "standardised_difference": 7.91375150307827,
+        "crop_a": "apple",
+        "mean_a": 112.6548,
+        "range_a": [
+          102.244,
+          123.6004
+        ],
+        "crop_b": "grapes",
+        "mean_b": 69.6118,
+        "range_b": [
+          65.5165,
+          74.4051
+        ]
+      },
+      {
+        "feature": "humidity",
+        "label": "Relative humidity (%)",
+        "standardised_difference": 7.890926926822924,
+        "crop_a": "apple",
+        "mean_a": 92.3334,
+        "range_a": [
+          90.2367,
+          94.6787
+        ],
+        "crop_b": "grapes",
+        "mean_b": 81.8752,
+        "range_b": [
+          80.1209,
+          83.7164
+        ]
+      },
+      {
+        "feature": "ph",
+        "label": "Soil pH",
+        "standardised_difference": 0.33875539015961786,
+        "crop_a": "apple",
+        "mean_a": 5.9297,
+        "range_a": [
+          5.5591,
+          6.4006
+        ],
+        "crop_b": "grapes",
+        "mean_b": 6.0259,
+        "range_b": [
+          5.5624,
+          6.4768
+        ]
+      }
+    ],
+    "explanation": "Apple is ranked first by the Gaussian Naive Bayes model (model support score >=99.9%). 7 of 7 entered values fall inside the typical range of Apple records in the dataset. In the dataset, the conditions that most separate Apple from Grapes are: Rainfall (mm), average 112.7 for Apple vs 69.6 for Grapes; Relative humidity (%), average 92.3 for Apple vs 81.9 for Grapes.",
+    "selected": {
+      "crop": "apple",
+      "display": "Apple",
+      "rank": 1,
+      "model_score": 1.0,
+      "model_score_display": ">=99.9%",
+      "profile_fit": 1.0,
+      "profile_fit_display": "100%",
+      "features_inside": 7,
+      "features_total": 7,
+      "feature_fits": {
+        "N": 1.0,
+        "P": 1.0,
+        "K": 1.0,
+        "temperature": 1.0,
+        "humidity": 1.0,
+        "ph": 1.0,
+        "rainfall": 1.0
+      },
+      "model_component": "high",
+      "profile_component": "close",
+      "label_key": "strong",
+      "label": "Strong model support",
+      "feature_comparison": [
+        {
+          "feature": "N",
+          "label": "Nitrogen (N, dataset ratio)",
+          "input": 24.0,
+          "mean": 20.8,
+          "sd": 11.8637,
+          "p05": 1.95,
+          "p95": 37.0,
+          "min": 0.0,
+          "max": 40.0,
+          "status": "within typical range",
+          "z_score": 0.26973035393679873,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "P",
+          "label": "Phosphorus (P, dataset ratio)",
+          "input": 136.5,
+          "mean": 134.22,
+          "sd": 8.1397,
+          "p05": 121.0,
+          "p95": 144.0,
+          "min": 120.0,
+          "max": 145.0,
+          "status": "within typical range",
+          "z_score": 0.28010860351118605,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "K",
+          "label": "Potassium (K, dataset ratio)",
+          "input": 200.0,
+          "mean": 199.89,
+          "sd": 3.3209,
+          "p05": 195.0,
+          "p95": 205.0,
+          "min": 195.0,
+          "max": 205.0,
+          "status": "within typical range",
+          "z_score": 0.03312355084465465,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "temperature",
+          "label": "Temperature (\u00b0C)",
+          "input": 22.6283,
+          "mean": 22.6309,
+          "sd": 0.8274,
+          "p05": 21.1689,
+          "p95": 23.8315,
+          "min": 21.0365,
+          "max": 23.9969,
+          "status": "within typical range",
+          "z_score": -0.0031423737007505994,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "humidity",
+          "label": "Relative humidity (%)",
+          "input": 92.4165,
+          "mean": 92.3334,
+          "sd": 1.4586,
+          "p05": 90.2367,
+          "p95": 94.6787,
+          "min": 90.0258,
+          "max": 94.9205,
+          "status": "within typical range",
+          "z_score": 0.056972439325381694,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "ph",
+          "label": "Soil pH",
+          "input": 5.8858,
+          "mean": 5.9297,
+          "sd": 0.2689,
+          "p05": 5.5591,
+          "p95": 6.4006,
+          "min": 5.5143,
+          "max": 6.4992,
+          "status": "within typical range",
+          "z_score": -0.1632577166232827,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "rainfall",
+          "label": "Rainfall (mm)",
+          "input": 112.9792,
+          "mean": 112.6548,
+          "sd": 7.103,
+          "p05": 102.244,
+          "p95": 123.6004,
+          "min": 100.1173,
+          "max": 124.9832,
+          "status": "within typical range",
+          "z_score": 0.0456708433056471,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        }
+      ],
+      "largest_gaps": [],
+      "alternatives": [],
+      "reference_note": "Typical range = central 90% (5th to 95th percentile) of this crop's dataset records. It is a data-derived reference, not a scientifically guaranteed optimum."
+    },
+    "all_crops": [
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 1.0,
+        "profile_fit_display": "100%",
+        "features_inside": 7,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 2,
+        "model_score": 2.384785564777325e-68,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.7142857142857143,
+        "profile_fit_display": "71%",
+        "features_inside": 5,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "banana",
+        "display": "Banana",
+        "rank": 3,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.35302344760738624,
+        "profile_fit_display": "35%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.41062654999766,
+          "humidity": 0.06053758325404379,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "jute",
+        "display": "Jute",
+        "rank": 4,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.372744233430582,
+        "profile_fit_display": "37%",
+        "features_inside": 0,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.850726660645373,
+          "humidity": 0.7641534290850108,
+          "ph": 0.8620846955067285,
+          "rainfall": 0.1322448487769614
+        }
+      },
+      {
+        "crop": "watermelon",
+        "display": "Watermelon",
+        "rank": 5,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2604356664609563,
+        "profile_fit_display": "26%",
+        "features_inside": 0,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.34407710234229805,
+          "humidity": 0.6973406224816495,
+          "ph": 0.7816319404027462,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "papaya",
+        "display": "Papaya",
+        "rank": 6,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5327678182463035,
+        "profile_fit_display": "53%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.7840755735492577,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.9452991541748662,
+          "humidity": 1.0,
+          "ph": 0.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "pomegranate",
+        "display": "Pomegranate",
+        "rank": 7,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6986335049673642,
+        "profile_fit_display": "70%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.89043453477155
+        }
+      },
+      {
+        "crop": "coffee",
+        "display": "Coffee",
+        "rank": 8,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.37588676719189423,
+        "profile_fit_display": "38%",
+        "features_inside": 0,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.8754597883838153,
+          "humidity": 0.0,
+          "ph": 0.8582642825992148,
+          "rainfall": 0.8974832993602293
+        }
+      },
+      {
+        "crop": "rice",
+        "display": "Rice",
+        "rank": 9,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3383117954924616,
+        "profile_fit_display": "34%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.052631578947368474,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.3155509894998625
+        }
+      },
+      {
+        "crop": "chickpea",
+        "display": "Chickpea",
+        "rank": 10,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3658126152287266,
+        "profile_fit_display": "37%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.46313539058763953,
+          "humidity": 0.0,
+          "ph": 0.885693071241549,
+          "rainfall": 0.2118598447718979
+        }
+      },
+      {
+        "crop": "blackgram",
+        "display": "Black Gram",
+        "rank": 11,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2976572027499806,
+        "profile_fit_display": "30%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.6435490713679646,
+          "humidity": 0.0,
+          "ph": 0.4400513478818997,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "muskmelon",
+        "display": "Muskmelon",
+        "rank": 12,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2541540092560499,
+        "profile_fit_display": "25%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.0,
+          "humidity": 1.0,
+          "ph": 0.7790780647923493,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "mungbean",
+        "display": "Mung Bean",
+        "rank": 13,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3252434370195614,
+        "profile_fit_display": "33%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.0,
+          "humidity": 0.7091758058080728,
+          "ph": 0.5675282533288567,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "cotton",
+        "display": "Cotton",
+        "rank": 14,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.37556981647860826,
+        "profile_fit_display": "38%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.12164005545865253,
+          "ph": 0.9386872586872584,
+          "rainfall": 0.5686614012043465
+        }
+      },
+      {
+        "crop": "mango",
+        "display": "Mango",
+        "rank": 15,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.34624457963039484,
+        "profile_fit_display": "35%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.42371205741276385,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "mothbeans",
+        "display": "Moth Beans",
+        "rank": 16,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3896357548701298,
+        "profile_fit_display": "39%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.7274502840909087,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "coconut",
+        "display": "Coconut",
+        "rank": 17,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.601342813731753,
+        "profile_fit_display": "60%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.44252043166117305,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.7668792644610984
+        }
+      },
+      {
+        "crop": "maize",
+        "display": "Maize",
+        "rank": 18,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.41869074244700005,
+        "profile_fit_display": "42%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.028909329829172048,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.9019258672998283
+        }
+      },
+      {
+        "crop": "orange",
+        "display": "Orange",
+        "rank": 19,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6953328458877943,
+        "profile_fit_display": "70%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 0.8673299212145607,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "pigeonpeas",
+        "display": "Pigeon Peas",
+        "rank": 20,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.607071022586286,
+        "profile_fit_display": "61%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.24949715810400175,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "kidneybeans",
+        "display": "Kidney Beans",
+        "rank": 21,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5714285714285714,
+        "profile_fit_display": "57%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "lentil",
+        "display": "Lentil",
+        "rank": 22,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.41388398454491954,
+        "profile_fit_display": "41%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 0.8971878918144366,
+          "rainfall": 0.0
+        }
+      }
+    ],
+    "disclaimer": "Scores rank similarity to crop records in the dataset. They are not probabilities of successful growth or yield, and reference ranges are data-derived, not agronomic optima."
+  },
+  "typical_apple_select_watermelon": {
+    "inputs": {
+      "N": 24.0,
+      "P": 136.5,
+      "K": 200.0,
+      "temperature": 22.6283,
+      "humidity": 92.4165,
+      "ph": 5.8858,
+      "rainfall": 112.9792
+    },
+    "warnings": [],
+    "cautions": [],
+    "notes": [],
+    "model_name": "Gaussian Naive Bayes",
+    "top3": [
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 1.0,
+        "profile_fit_display": "100%",
+        "features_inside": 7,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 2,
+        "model_score": 2.384785564777325e-68,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.7142857142857143,
+        "profile_fit_display": "71%",
+        "features_inside": 5,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "banana",
+        "display": "Banana",
+        "rank": 3,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.35302344760738624,
+        "profile_fit_display": "35%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.41062654999766,
+          "humidity": 0.06053758325404379,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      }
+    ],
+    "closest_by_profile": [
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 1.0,
+        "profile_fit_display": "100%",
+        "features_inside": 7,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 2,
+        "model_score": 2.384785564777325e-68,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.7142857142857143,
+        "profile_fit_display": "71%",
+        "features_inside": 5,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "pomegranate",
+        "display": "Pomegranate",
+        "rank": 7,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6986335049673642,
+        "profile_fit_display": "70%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.89043453477155
+        }
+      }
+    ],
+    "distinguishing": [
+      {
+        "feature": "rainfall",
+        "label": "Rainfall (mm)",
+        "standardised_difference": 7.91375150307827,
+        "crop_a": "apple",
+        "mean_a": 112.6548,
+        "range_a": [
+          102.244,
+          123.6004
+        ],
+        "crop_b": "grapes",
+        "mean_b": 69.6118,
+        "range_b": [
+          65.5165,
+          74.4051
+        ]
+      },
+      {
+        "feature": "humidity",
+        "label": "Relative humidity (%)",
+        "standardised_difference": 7.890926926822924,
+        "crop_a": "apple",
+        "mean_a": 92.3334,
+        "range_a": [
+          90.2367,
+          94.6787
+        ],
+        "crop_b": "grapes",
+        "mean_b": 81.8752,
+        "range_b": [
+          80.1209,
+          83.7164
+        ]
+      },
+      {
+        "feature": "ph",
+        "label": "Soil pH",
+        "standardised_difference": 0.33875539015961786,
+        "crop_a": "apple",
+        "mean_a": 5.9297,
+        "range_a": [
+          5.5591,
+          6.4006
+        ],
+        "crop_b": "grapes",
+        "mean_b": 6.0259,
+        "range_b": [
+          5.5624,
+          6.4768
+        ]
+      }
+    ],
+    "explanation": "Apple is ranked first by the Gaussian Naive Bayes model (model support score >=99.9%). 7 of 7 entered values fall inside the typical range of Apple records in the dataset. In the dataset, the conditions that most separate Apple from Grapes are: Rainfall (mm), average 112.7 for Apple vs 69.6 for Grapes; Relative humidity (%), average 92.3 for Apple vs 81.9 for Grapes.",
+    "selected": {
+      "crop": "watermelon",
+      "display": "Watermelon",
+      "rank": 5,
+      "model_score": 0.0,
+      "model_score_display": "<0.1%",
+      "profile_fit": 0.2604356664609563,
+      "profile_fit_display": "26%",
+      "features_inside": 0,
+      "features_total": 7,
+      "feature_fits": {
+        "N": 0.0,
+        "P": 0.0,
+        "K": 0.0,
+        "temperature": 0.34407710234229805,
+        "humidity": 0.6973406224816495,
+        "ph": 0.7816319404027462,
+        "rainfall": 0.0
+      },
+      "model_component": "low",
+      "profile_component": "poor",
+      "label_key": "low",
+      "label": "Low model support; consider alternative crops",
+      "feature_comparison": [
+        {
+          "feature": "N",
+          "label": "Nitrogen (N, dataset ratio)",
+          "input": 24.0,
+          "mean": 99.42,
+          "sd": 12.5651,
+          "p05": 81.0,
+          "p95": 119.0,
+          "min": 80.0,
+          "max": 120.0,
+          "status": "below typical range",
+          "z_score": -6.0023398142474,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "P",
+          "label": "Phosphorus (P, dataset ratio)",
+          "input": 136.5,
+          "mean": 17.0,
+          "sd": 7.5358,
+          "p05": 5.95,
+          "p95": 29.0,
+          "min": 5.0,
+          "max": 30.0,
+          "status": "above typical range",
+          "z_score": 15.857639533957908,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "K",
+          "label": "Potassium (K, dataset ratio)",
+          "input": 200.0,
+          "mean": 50.22,
+          "sd": 3.2647,
+          "p05": 45.0,
+          "p95": 55.0,
+          "min": 45.0,
+          "max": 55.0,
+          "status": "above typical range",
+          "z_score": 45.87864122277698,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "temperature",
+          "label": "Temperature (\u00b0C)",
+          "input": 22.6283,
+          "mean": 25.5918,
+          "sd": 0.8501,
+          "p05": 24.2889,
+          "p95": 26.8206,
+          "min": 24.0436,
+          "max": 26.986,
+          "status": "below typical range",
+          "z_score": -3.4860604634748853,
+          "feature_fit": 0.34407710234229805,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "humidity",
+          "label": "Relative humidity (%)",
+          "input": 92.4165,
+          "mean": 85.1604,
+          "sd": 2.9566,
+          "p05": 80.4547,
+          "p95": 89.6373,
+          "min": 80.0262,
+          "max": 89.9841,
+          "status": "above typical range",
+          "z_score": 2.4542041534194694,
+          "feature_fit": 0.6973406224816495,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "ph",
+          "label": "Soil pH",
+          "input": 5.8858,
+          "mean": 6.4958,
+          "sd": 0.2814,
+          "p05": 6.0734,
+          "p95": 6.9325,
+          "min": 6.001,
+          "max": 6.9565,
+          "status": "below typical range",
+          "z_score": -2.1677327647476914,
+          "feature_fit": 0.7816319404027462,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "rainfall",
+          "label": "Rainfall (mm)",
+          "input": 112.9792,
+          "mean": 50.7862,
+          "sd": 5.867,
+          "p05": 41.147,
+          "p95": 58.9931,
+          "min": 40.1265,
+          "max": 59.7598,
+          "status": "above typical range",
+          "z_score": 10.600477245611046,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        }
+      ],
+      "largest_gaps": [
+        {
+          "feature": "K",
+          "label": "Potassium (K, dataset ratio)",
+          "input": 200.0,
+          "mean": 50.22,
+          "sd": 3.2647,
+          "p05": 45.0,
+          "p95": 55.0,
+          "min": 45.0,
+          "max": 55.0,
+          "status": "above typical range",
+          "z_score": 45.87864122277698,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "P",
+          "label": "Phosphorus (P, dataset ratio)",
+          "input": 136.5,
+          "mean": 17.0,
+          "sd": 7.5358,
+          "p05": 5.95,
+          "p95": 29.0,
+          "min": 5.0,
+          "max": 30.0,
+          "status": "above typical range",
+          "z_score": 15.857639533957908,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "rainfall",
+          "label": "Rainfall (mm)",
+          "input": 112.9792,
+          "mean": 50.7862,
+          "sd": 5.867,
+          "p05": 41.147,
+          "p95": 58.9931,
+          "min": 40.1265,
+          "max": 59.7598,
+          "status": "above typical range",
+          "z_score": 10.600477245611046,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        }
+      ],
+      "alternatives": [
+        {
+          "crop": "apple",
+          "display": "Apple",
+          "rank": 1,
+          "model_score": 1.0,
+          "model_score_display": ">=99.9%",
+          "profile_fit": 1.0,
+          "profile_fit_display": "100%",
+          "features_inside": 7,
+          "features_total": 7,
+          "feature_fits": {
+            "N": 1.0,
+            "P": 1.0,
+            "K": 1.0,
+            "temperature": 1.0,
+            "humidity": 1.0,
+            "ph": 1.0,
+            "rainfall": 1.0
+          },
+          "better_on_model_rank": true,
+          "better_on_profile_fit": true
+        },
+        {
+          "crop": "grapes",
+          "display": "Grapes",
+          "rank": 2,
+          "model_score": 2.384785564777325e-68,
+          "model_score_display": "<0.1%",
+          "profile_fit": 0.7142857142857143,
+          "profile_fit_display": "71%",
+          "features_inside": 5,
+          "features_total": 7,
+          "feature_fits": {
+            "N": 1.0,
+            "P": 1.0,
+            "K": 1.0,
+            "temperature": 1.0,
+            "humidity": 0.0,
+            "ph": 1.0,
+            "rainfall": 0.0
+          },
+          "better_on_model_rank": true,
+          "better_on_profile_fit": true
+        },
+        {
+          "crop": "banana",
+          "display": "Banana",
+          "rank": 3,
+          "model_score": 0.0,
+          "model_score_display": "<0.1%",
+          "profile_fit": 0.35302344760738624,
+          "profile_fit_display": "35%",
+          "features_inside": 2,
+          "features_total": 7,
+          "feature_fits": {
+            "N": 0.0,
+            "P": 0.0,
+            "K": 0.0,
+            "temperature": 0.41062654999766,
+            "humidity": 0.06053758325404379,
+            "ph": 1.0,
+            "rainfall": 1.0
+          },
+          "better_on_model_rank": true,
+          "better_on_profile_fit": true
+        }
+      ],
+      "reference_note": "Typical range = central 90% (5th to 95th percentile) of this crop's dataset records. It is a data-derived reference, not a scientifically guaranteed optimum."
+    },
+    "all_crops": [
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 1.0,
+        "profile_fit_display": "100%",
+        "features_inside": 7,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 2,
+        "model_score": 2.384785564777325e-68,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.7142857142857143,
+        "profile_fit_display": "71%",
+        "features_inside": 5,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 1.0,
+          "K": 1.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "banana",
+        "display": "Banana",
+        "rank": 3,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.35302344760738624,
+        "profile_fit_display": "35%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.41062654999766,
+          "humidity": 0.06053758325404379,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "jute",
+        "display": "Jute",
+        "rank": 4,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.372744233430582,
+        "profile_fit_display": "37%",
+        "features_inside": 0,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.850726660645373,
+          "humidity": 0.7641534290850108,
+          "ph": 0.8620846955067285,
+          "rainfall": 0.1322448487769614
+        }
+      },
+      {
+        "crop": "watermelon",
+        "display": "Watermelon",
+        "rank": 5,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2604356664609563,
+        "profile_fit_display": "26%",
+        "features_inside": 0,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.34407710234229805,
+          "humidity": 0.6973406224816495,
+          "ph": 0.7816319404027462,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "papaya",
+        "display": "Papaya",
+        "rank": 6,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5327678182463035,
+        "profile_fit_display": "53%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.7840755735492577,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.9452991541748662,
+          "humidity": 1.0,
+          "ph": 0.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "pomegranate",
+        "display": "Pomegranate",
+        "rank": 7,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6986335049673642,
+        "profile_fit_display": "70%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.89043453477155
+        }
+      },
+      {
+        "crop": "coffee",
+        "display": "Coffee",
+        "rank": 8,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.37588676719189423,
+        "profile_fit_display": "38%",
+        "features_inside": 0,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.8754597883838153,
+          "humidity": 0.0,
+          "ph": 0.8582642825992148,
+          "rainfall": 0.8974832993602293
+        }
+      },
+      {
+        "crop": "rice",
+        "display": "Rice",
+        "rank": 9,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3383117954924616,
+        "profile_fit_display": "34%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.052631578947368474,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.3155509894998625
+        }
+      },
+      {
+        "crop": "chickpea",
+        "display": "Chickpea",
+        "rank": 10,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3658126152287266,
+        "profile_fit_display": "37%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.46313539058763953,
+          "humidity": 0.0,
+          "ph": 0.885693071241549,
+          "rainfall": 0.2118598447718979
+        }
+      },
+      {
+        "crop": "blackgram",
+        "display": "Black Gram",
+        "rank": 11,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2976572027499806,
+        "profile_fit_display": "30%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.6435490713679646,
+          "humidity": 0.0,
+          "ph": 0.4400513478818997,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "muskmelon",
+        "display": "Muskmelon",
+        "rank": 12,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2541540092560499,
+        "profile_fit_display": "25%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.0,
+          "humidity": 1.0,
+          "ph": 0.7790780647923493,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "mungbean",
+        "display": "Mung Bean",
+        "rank": 13,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3252434370195614,
+        "profile_fit_display": "33%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.0,
+          "humidity": 0.7091758058080728,
+          "ph": 0.5675282533288567,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "cotton",
+        "display": "Cotton",
+        "rank": 14,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.37556981647860826,
+        "profile_fit_display": "38%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.12164005545865253,
+          "ph": 0.9386872586872584,
+          "rainfall": 0.5686614012043465
+        }
+      },
+      {
+        "crop": "mango",
+        "display": "Mango",
+        "rank": 15,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.34624457963039484,
+        "profile_fit_display": "35%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.42371205741276385,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "mothbeans",
+        "display": "Moth Beans",
+        "rank": 16,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3896357548701298,
+        "profile_fit_display": "39%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.7274502840909087,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "coconut",
+        "display": "Coconut",
+        "rank": 17,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.601342813731753,
+        "profile_fit_display": "60%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.44252043166117305,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.7668792644610984
+        }
+      },
+      {
+        "crop": "maize",
+        "display": "Maize",
+        "rank": 18,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.41869074244700005,
+        "profile_fit_display": "42%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.028909329829172048,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.9019258672998283
+        }
+      },
+      {
+        "crop": "orange",
+        "display": "Orange",
+        "rank": 19,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6953328458877943,
+        "profile_fit_display": "70%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 0.8673299212145607,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "pigeonpeas",
+        "display": "Pigeon Peas",
+        "rank": 20,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.607071022586286,
+        "profile_fit_display": "61%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.24949715810400175,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "kidneybeans",
+        "display": "Kidney Beans",
+        "rank": 21,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5714285714285714,
+        "profile_fit_display": "57%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "lentil",
+        "display": "Lentil",
+        "rank": 22,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.41388398454491954,
+        "profile_fit_display": "41%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 0.8971878918144366,
+          "rainfall": 0.0
+        }
+      }
+    ],
+    "disclaimer": "Scores rank similarity to crop records in the dataset. They are not probabilities of successful growth or yield, and reference ranges are data-derived, not agronomic optima."
+  },
+  "blend_of_apple_and_watermelon_select_apple": {
+    "inputs": {
+      "N": 61.5,
+      "P": 77.0,
+      "K": 125.25,
+      "temperature": 24.116149999999998,
+      "humidity": 88.72355,
+      "ph": 6.177849999999999,
+      "rainfall": 81.82555
+    },
+    "warnings": [],
+    "cautions": [
+      "The entered conditions do not closely match any single crop's typical ranges in the dataset (best profile fit: 66%). Model scores are relative rankings and can be very high even for unusual inputs, so read this recommendation with caution."
+    ],
+    "notes": [],
+    "model_name": "Gaussian Naive Bayes",
+    "top3": [
+      {
+        "crop": "banana",
+        "display": "Banana",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 0.6221548992832362,
+        "profile_fit_display": "62%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4151212553495006,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 0.7587267792803324,
+          "humidity": 0.49975618458610793,
+          "ph": 1.0,
+          "rainfall": 0.6814800757667125
+        }
+      },
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 2,
+        "model_score": 3.001303704325718e-23,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.4139092291690876,
+        "profile_fit_display": "41%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.3009985734664764,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.8930932171561634,
+          "humidity": 0.6593538946420545,
+          "ph": 1.0,
+          "rainfall": 0.04391891891891897
+        }
+      },
+      {
+        "crop": "watermelon",
+        "display": "Watermelon",
+        "rank": 3,
+        "model_score": 2.96367733076545e-28,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.48837247461585565,
+        "profile_fit_display": "49%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.48684210526315785,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.9317652170478318,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      }
+    ],
+    "closest_by_profile": [
+      {
+        "crop": "pigeonpeas",
+        "display": "Pigeon Peas",
+        "rank": 18,
+        "model_score": 1.402696737471908e-226,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6584128845443601,
+        "profile_fit_display": "66%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.3758668515950069,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.3573038332754349,
+          "ph": 1.0,
+          "rainfall": 0.8757195069400794
+        }
+      },
+      {
+        "crop": "papaya",
+        "display": "Papaya",
+        "rank": 4,
+        "model_score": 1.7903257190162006e-28,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.644287011888393,
+        "profile_fit_display": "64%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.5748218527315913,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.666557680165963,
+          "ph": 0.26862955032119706,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "maize",
+        "display": "Maize",
+        "rank": 17,
+        "model_score": 6.168718393807737e-166,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6335041727686722,
+        "profile_fit_display": "63%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.31999999999999995,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.11452920938070521,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      }
+    ],
+    "distinguishing": [
+      {
+        "feature": "K",
+        "label": "Potassium (K, dataset ratio)",
+        "standardised_difference": 44.70311134669188,
+        "crop_a": "banana",
+        "mean_a": 50.05,
+        "range_a": [
+          45.0,
+          55.0
+        ],
+        "crop_b": "apple",
+        "mean_b": 199.89,
+        "range_b": [
+          195.0,
+          205.0
+        ]
+      },
+      {
+        "feature": "N",
+        "label": "Nitrogen (N, dataset ratio)",
+        "standardised_difference": 6.911959121045696,
+        "crop_a": "banana",
+        "mean_a": 100.23,
+        "range_a": [
+          82.0,
+          117.05
+        ],
+        "crop_b": "apple",
+        "mean_b": 20.8,
+        "range_b": [
+          1.95,
+          37.0
+        ]
+      },
+      {
+        "feature": "P",
+        "label": "Phosphorus (P, dataset ratio)",
+        "standardised_difference": 6.59367954109095,
+        "crop_a": "banana",
+        "mean_a": 82.01,
+        "range_a": [
+          71.0,
+          94.0
+        ],
+        "crop_b": "apple",
+        "mean_b": 134.22,
+        "range_b": [
+          121.0,
+          144.0
+        ]
+      }
+    ],
+    "explanation": "Banana is ranked first by the Gaussian Naive Bayes model (model support score >=99.9%). 2 of 7 entered values fall inside the typical range of Banana records in the dataset; outside the range: Nitrogen (N, dataset ratio) (below), Potassium (K, dataset ratio) (above), Temperature (\u00b0C) (below), Relative humidity (%) (above), Rainfall (mm) (below). In the dataset, the conditions that most separate Banana from Apple are: Potassium (K, dataset ratio), average 50.0 for Banana vs 199.9 for Apple; Nitrogen (N, dataset ratio), average 100.2 for Banana vs 20.8 for Apple.",
+    "selected": {
+      "crop": "apple",
+      "display": "Apple",
+      "rank": 2,
+      "model_score": 3.001303704325718e-23,
+      "model_score_display": "<0.1%",
+      "profile_fit": 0.4139092291690876,
+      "profile_fit_display": "41%",
+      "features_inside": 1,
+      "features_total": 7,
+      "feature_fits": {
+        "N": 0.3009985734664764,
+        "P": 0.0,
+        "K": 0.0,
+        "temperature": 0.8930932171561634,
+        "humidity": 0.6593538946420545,
+        "ph": 1.0,
+        "rainfall": 0.04391891891891897
+      },
+      "model_component": "medium",
+      "profile_component": "poor",
+      "label_key": "low",
+      "label": "Low model support; consider alternative crops",
+      "feature_comparison": [
+        {
+          "feature": "N",
+          "label": "Nitrogen (N, dataset ratio)",
+          "input": 61.5,
+          "mean": 20.8,
+          "sd": 11.8637,
+          "p05": 1.95,
+          "p95": 37.0,
+          "min": 0.0,
+          "max": 40.0,
+          "status": "above typical range",
+          "z_score": 3.4306329391336603,
+          "feature_fit": 0.3009985734664764,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "P",
+          "label": "Phosphorus (P, dataset ratio)",
+          "input": 77.0,
+          "mean": 134.22,
+          "sd": 8.1397,
+          "p05": 121.0,
+          "p95": 144.0,
+          "min": 120.0,
+          "max": 145.0,
+          "status": "below typical range",
+          "z_score": -7.029743110925464,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "K",
+          "label": "Potassium (K, dataset ratio)",
+          "input": 125.25,
+          "mean": 199.89,
+          "sd": 3.3209,
+          "p05": 195.0,
+          "p95": 205.0,
+          "min": 195.0,
+          "max": 205.0,
+          "status": "below typical range",
+          "z_score": -22.475834864042877,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "temperature",
+          "label": "Temperature (\u00b0C)",
+          "input": 24.116149999999998,
+          "mean": 22.6309,
+          "sd": 0.8274,
+          "p05": 21.1689,
+          "p95": 23.8315,
+          "min": 21.0365,
+          "max": 23.9969,
+          "status": "above typical range",
+          "z_score": 1.7950809765530542,
+          "feature_fit": 0.8930932171561634,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "humidity",
+          "label": "Relative humidity (%)",
+          "input": 88.72355,
+          "mean": 92.3334,
+          "sd": 1.4586,
+          "p05": 90.2367,
+          "p95": 94.6787,
+          "min": 90.0258,
+          "max": 94.9205,
+          "status": "below typical range",
+          "z_score": -2.474873166049633,
+          "feature_fit": 0.6593538946420545,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "ph",
+          "label": "Soil pH",
+          "input": 6.177849999999999,
+          "mean": 5.9297,
+          "sd": 0.2689,
+          "p05": 5.5591,
+          "p95": 6.4006,
+          "min": 5.5143,
+          "max": 6.4992,
+          "status": "within typical range",
+          "z_score": 0.9228337671996988,
+          "feature_fit": 1.0,
+          "outside_observed_min_max": false
+        },
+        {
+          "feature": "rainfall",
+          "label": "Rainfall (mm)",
+          "input": 81.82555,
+          "mean": 112.6548,
+          "sd": 7.103,
+          "p05": 102.244,
+          "p95": 123.6004,
+          "min": 100.1173,
+          "max": 124.9832,
+          "status": "below typical range",
+          "z_score": -4.3403139518513285,
+          "feature_fit": 0.04391891891891897,
+          "outside_observed_min_max": true
+        }
+      ],
+      "largest_gaps": [
+        {
+          "feature": "K",
+          "label": "Potassium (K, dataset ratio)",
+          "input": 125.25,
+          "mean": 199.89,
+          "sd": 3.3209,
+          "p05": 195.0,
+          "p95": 205.0,
+          "min": 195.0,
+          "max": 205.0,
+          "status": "below typical range",
+          "z_score": -22.475834864042877,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "P",
+          "label": "Phosphorus (P, dataset ratio)",
+          "input": 77.0,
+          "mean": 134.22,
+          "sd": 8.1397,
+          "p05": 121.0,
+          "p95": 144.0,
+          "min": 120.0,
+          "max": 145.0,
+          "status": "below typical range",
+          "z_score": -7.029743110925464,
+          "feature_fit": 0.0,
+          "outside_observed_min_max": true
+        },
+        {
+          "feature": "rainfall",
+          "label": "Rainfall (mm)",
+          "input": 81.82555,
+          "mean": 112.6548,
+          "sd": 7.103,
+          "p05": 102.244,
+          "p95": 123.6004,
+          "min": 100.1173,
+          "max": 124.9832,
+          "status": "below typical range",
+          "z_score": -4.3403139518513285,
+          "feature_fit": 0.04391891891891897,
+          "outside_observed_min_max": true
+        }
+      ],
+      "alternatives": [
+        {
+          "crop": "banana",
+          "display": "Banana",
+          "rank": 1,
+          "model_score": 1.0,
+          "model_score_display": ">=99.9%",
+          "profile_fit": 0.6221548992832362,
+          "profile_fit_display": "62%",
+          "features_inside": 2,
+          "features_total": 7,
+          "feature_fits": {
+            "N": 0.4151212553495006,
+            "P": 1.0,
+            "K": 0.0,
+            "temperature": 0.7587267792803324,
+            "humidity": 0.49975618458610793,
+            "ph": 1.0,
+            "rainfall": 0.6814800757667125
+          },
+          "better_on_model_rank": true,
+          "better_on_profile_fit": true
+        },
+        {
+          "crop": "watermelon",
+          "display": "Watermelon",
+          "rank": 3,
+          "model_score": 2.96367733076545e-28,
+          "model_score_display": "<0.1%",
+          "profile_fit": 0.48837247461585565,
+          "profile_fit_display": "49%",
+          "features_inside": 2,
+          "features_total": 7,
+          "feature_fits": {
+            "N": 0.48684210526315785,
+            "P": 0.0,
+            "K": 0.0,
+            "temperature": 0.9317652170478318,
+            "humidity": 1.0,
+            "ph": 1.0,
+            "rainfall": 0.0
+          },
+          "better_on_model_rank": false,
+          "better_on_profile_fit": true
+        },
+        {
+          "crop": "papaya",
+          "display": "Papaya",
+          "rank": 4,
+          "model_score": 1.7903257190162006e-28,
+          "model_score_display": "<0.1%",
+          "profile_fit": 0.644287011888393,
+          "profile_fit_display": "64%",
+          "features_inside": 3,
+          "features_total": 7,
+          "feature_fits": {
+            "N": 1.0,
+            "P": 0.5748218527315913,
+            "K": 0.0,
+            "temperature": 1.0,
+            "humidity": 0.666557680165963,
+            "ph": 0.26862955032119706,
+            "rainfall": 1.0
+          },
+          "better_on_model_rank": false,
+          "better_on_profile_fit": true
+        }
+      ],
+      "reference_note": "Typical range = central 90% (5th to 95th percentile) of this crop's dataset records. It is a data-derived reference, not a scientifically guaranteed optimum."
+    },
+    "all_crops": [
+      {
+        "crop": "banana",
+        "display": "Banana",
+        "rank": 1,
+        "model_score": 1.0,
+        "model_score_display": ">=99.9%",
+        "profile_fit": 0.6221548992832362,
+        "profile_fit_display": "62%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4151212553495006,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 0.7587267792803324,
+          "humidity": 0.49975618458610793,
+          "ph": 1.0,
+          "rainfall": 0.6814800757667125
+        }
+      },
+      {
+        "crop": "apple",
+        "display": "Apple",
+        "rank": 2,
+        "model_score": 3.001303704325718e-23,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.4139092291690876,
+        "profile_fit_display": "41%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.3009985734664764,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.8930932171561634,
+          "humidity": 0.6593538946420545,
+          "ph": 1.0,
+          "rainfall": 0.04391891891891897
+        }
+      },
+      {
+        "crop": "watermelon",
+        "display": "Watermelon",
+        "rank": 3,
+        "model_score": 2.96367733076545e-28,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.48837247461585565,
+        "profile_fit_display": "49%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.48684210526315785,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.9317652170478318,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "papaya",
+        "display": "Papaya",
+        "rank": 4,
+        "model_score": 1.7903257190162006e-28,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.644287011888393,
+        "profile_fit_display": "64%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.5748218527315913,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.666557680165963,
+          "ph": 0.26862955032119706,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "grapes",
+        "display": "Grapes",
+        "rank": 5,
+        "model_score": 4.960514015118498e-40,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3607958719281088,
+        "profile_fit_display": "36%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.36039886039886027,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.16517224309790146
+        }
+      },
+      {
+        "crop": "jute",
+        "display": "Jute",
+        "rank": 6,
+        "model_score": 3.26146123598324e-48,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5825384856311794,
+        "profile_fit_display": "58%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.09738717339667446,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.9803822260215816,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "rice",
+        "display": "Rice",
+        "rank": 7,
+        "model_score": 5.31507979362907e-92,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.4733145680774914,
+        "profile_fit_display": "47%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.25,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0429101449275372,
+          "ph": 1.0,
+          "rainfall": 0.020291831614902556
+        }
+      },
+      {
+        "crop": "pomegranate",
+        "display": "Pomegranate",
+        "rank": 8,
+        "model_score": 4.360108677178636e-97,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.4906015037593985,
+        "profile_fit_display": "49%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4342105263157895,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 1.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "coffee",
+        "display": "Coffee",
+        "rank": 9,
+        "model_score": 4.728827156559185e-99,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.41586468095580564,
+        "profile_fit_display": "42%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4327323162274618,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.47832045046317784
+        }
+      },
+      {
+        "crop": "muskmelon",
+        "display": "Muskmelon",
+        "rank": 10,
+        "model_score": 5.4605159799110035e-124,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.2959991158509419,
+        "profile_fit_display": "30%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4313453536754507,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.0,
+          "humidity": 0.6406484572811425,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "coconut",
+        "display": "Coconut",
+        "rank": 11,
+        "model_score": 4.843346687921903e-139,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.4781919192478941,
+        "profile_fit_display": "48%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4078947368421053,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.778423714272813,
+          "humidity": 0.7391638097216939,
+          "ph": 1.0,
+          "rainfall": 0.4218611738986465
+        }
+      },
+      {
+        "crop": "blackgram",
+        "display": "Black Gram",
+        "rank": 12,
+        "model_score": 2.8650725260548646e-146,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5439190267937242,
+        "profile_fit_display": "54%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.9055330634278003,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 0.818887291411332,
+          "humidity": 0.0,
+          "ph": 0.6899871630295247,
+          "rainfall": 0.39302566968741237
+        }
+      },
+      {
+        "crop": "mungbean",
+        "display": "Mung Bean",
+        "rank": 13,
+        "model_score": 4.702356846647447e-148,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.3445295814663999,
+        "profile_fit_display": "34%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.30000000000000004,
+          "P": 0.21739130434782605,
+          "K": 0.0,
+          "temperature": 0.0,
+          "humidity": 1.0,
+          "ph": 0.8943157659169733,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "cotton",
+        "display": "Cotton",
+        "rank": 14,
+        "model_score": 1.8786222734948644e-148,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5466031575651862,
+        "profile_fit_display": "55%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.0,
+          "P": 0.29166666666666663,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.5345554362896372,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "mothbeans",
+        "display": "Moth Beans",
+        "rank": 15,
+        "model_score": 1.4247781404331922e-155,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.47099736444975004,
+        "profile_fit_display": "47%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.375,
+          "P": 0.21739130434782605,
+          "K": 0.0,
+          "temperature": 0.9475985440340903,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.7569917027663344
+        }
+      },
+      {
+        "crop": "mango",
+        "display": "Mango",
+        "rank": 16,
+        "model_score": 1.4351520036347379e-162,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.31682313450016075,
+        "profile_fit_display": "32%",
+        "features_inside": 1,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4078947368421053,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 0.6053055545384639,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.20456165012055627
+        }
+      },
+      {
+        "crop": "maize",
+        "display": "Maize",
+        "rank": 17,
+        "model_score": 6.168718393807737e-166,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6335041727686722,
+        "profile_fit_display": "63%",
+        "features_inside": 4,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 1.0,
+          "P": 0.31999999999999995,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.11452920938070521,
+          "ph": 1.0,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "pigeonpeas",
+        "display": "Pigeon Peas",
+        "rank": 18,
+        "model_score": 1.402696737471908e-226,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.6584128845443601,
+        "profile_fit_display": "66%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.3758668515950069,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.3573038332754349,
+          "ph": 1.0,
+          "rainfall": 0.8757195069400794
+        }
+      },
+      {
+        "crop": "orange",
+        "display": "Orange",
+        "rank": 19,
+        "model_score": 9.395205703936325e-232,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.44042676104726414,
+        "profile_fit_display": "44%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.4078947368421053,
+          "P": 0.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.6750925904887435,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "lentil",
+        "display": "Lentil",
+        "rank": 20,
+        "model_score": 2.7922812426082693e-260,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.47863078749505344,
+        "profile_fit_display": "48%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.35041551246537384,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 1.0,
+          "rainfall": 0.0
+        }
+      },
+      {
+        "crop": "chickpea",
+        "display": "Chickpea",
+        "rank": 21,
+        "model_score": 1.935320817453e-312,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5681224266170972,
+        "profile_fit_display": "57%",
+        "features_inside": 2,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.9324324324324325,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 0.0446004107007234,
+          "humidity": 0.0,
+          "ph": 0.9998241431865251,
+          "rainfall": 1.0
+        }
+      },
+      {
+        "crop": "kidneybeans",
+        "display": "Kidney Beans",
+        "rank": 22,
+        "model_score": 0.0,
+        "model_score_display": "<0.1%",
+        "profile_fit": 0.5442444867034474,
+        "profile_fit_display": "54%",
+        "features_inside": 3,
+        "features_total": 7,
+        "feature_fits": {
+          "N": 0.27941176470588236,
+          "P": 1.0,
+          "K": 0.0,
+          "temperature": 1.0,
+          "humidity": 0.0,
+          "ph": 0.5302996422182498,
+          "rainfall": 1.0
+        }
+      }
+    ],
+    "disclaimer": "Scores rank similarity to crop records in the dataset. They are not probabilities of successful growth or yield, and reference ranges are data-derived, not agronomic optima."
+  }
+}

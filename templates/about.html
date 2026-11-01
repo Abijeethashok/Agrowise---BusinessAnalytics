@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% set active_page = 'about' %}
+{% block title %}About &amp; Methodology{% endblock %}
+{% block content %}
+<div class="container pb-4">
+  <div class="page-head">
+    <h1>About and methodology</h1>
+    <p class="text-muted-agro mb-0">What data AgroWise uses, how the analysis and model work, and what the results can and cannot tell you.</p>
+  </div>
+
+  <section class="mt-4" id="dataset">
+    <h2 class="h3">Dataset</h2>
+    <p>AgroWise uses the public <em>Crop Recommendation dataset</em> posted on Figshare by Saroj Mali (2024, version 2). Its description credits the Indian Chamber of Food and Agriculture (ICFA) and says it was built by augmenting rainfall, climate and fertilizer datasets for India. The page states that the data can be used publicly; the exact terms are on the dataset's Licence tab.</p>
+    <p>The file holds 2,200 records (100 for each of 22 crops), seven numeric measurements and a crop label. There are no missing values and no duplicate rows.</p>
+    <div class="table-responsive">
+      <table class="table table-agro">
+        <thead><tr><th>Variable</th><th>Meaning</th><th>Unit as given</th></tr></thead>
+        <tbody>
+          <tr><td>N, P, K</td><td>Nitrogen, phosphorus and potassium content of the soil</td><td>Unitless ratio (not kg/ha or ppm)</td></tr>
+          <tr><td>temperature</td><td>Temperature</td><td>°C (averaging period not stated)</td></tr>
+          <tr><td>humidity</td><td>Relative humidity</td><td>%</td></tr>
+          <tr><td>ph</td><td>Soil pH</td><td>0 to 14 scale</td></tr>
+          <tr><td>rainfall</td><td>Rainfall</td><td>mm (annual, seasonal or monthly is not stated)</td></tr>
+          <tr><td>label</td><td>Crop associated with the record (the prediction target)</td><td>22 categories</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The label means "the crop this record is associated with in the dataset". It does not say whether a crop would succeed under other conditions.</p>
+  </section>
+
+  <section class="mt-5" id="workflow">
+    <h2 class="h3">Workflow</h2>
+    <ol>
+      <li><strong>Inspect and clean.</strong> Check columns, ranges, missing values, duplicates and labels. Nothing was removed, because no rows were invalid.</li>
+      <li><strong>Describe and test.</strong> Descriptive statistics, correlations, assumption checks and one-way ANOVA-family tests across crops.</li>
+      <li><strong>Train and compare models.</strong> Decision Tree, Gaussian Naive Bayes and Random Forest, compared with stratified cross-validation on the training data.</li>
+      <li><strong>Build crop reference profiles.</strong> Per-crop means, spreads and percentile ranges calculated from the data.</li>
+      <li><strong>Serve recommendations.</strong> A Flask application loads the saved model and profiles and answers each request without retraining.</li>
+    </ol>
+  </section>
+
+  <section class="mt-5" id="statistics">
+    <h2 class="h3">Statistical methods</h2>
+    <ul>
+      <li><strong>Descriptive statistics:</strong> mean, median, standard deviation, quartiles, skewness and kurtosis, overall and for each crop.</li>
+      <li><strong>Correlation:</strong> Pearson's r and Spearman's ρ. Pooled correlations mix different crops together and show association, not causation.</li>
+      <li><strong>Assumption checks:</strong> Shapiro-Wilk for normality within each crop and Levene's test (median-centred) for equal variances.</li>
+      <li><strong>Group comparison:</strong> one-way ANOVA, Welch's ANOVA and Kruskal-Wallis are all computed. The primary test follows a fixed rule: Kruskal-Wallis when normality fails in most crop groups, Welch when only variances differ, classical ANOVA when both hold.</li>
+      <li><strong>Effect size and multiple tests:</strong> eta-squared (the Kruskal-Wallis version when that test is primary), a Bonferroni-adjusted significance level for seven tests, and Tukey HSD pairwise comparisons treated as exploratory.</li>
+      <li><strong>Outliers:</strong> counted with the 1.5 × IQR rule and kept in the data.</li>
+    </ul>
+  </section>
+
+  <section class="mt-5" id="model">
+    <h2 class="h3">Model and evaluation</h2>
+    <p>The data were split 80/20 with stratification. Models were compared with 5-fold stratified cross-validation on the training part only. The model with the highest mean macro-F1 was selected; models within 0.005 of the best count as tied, and ties are broken by the lowest cross-validated log-loss. The test set was used only for final reporting. No feature scaling is applied, because none of the three models is affected by it.</p>
+    <div class="row g-3 mb-2">
+      <div class="col-12 col-md-4"><div class="card-soft kpi"><strong data-ov="selected_model">…</strong><span>selected model</span></div></div>
+      <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="test_accuracy" data-fmt="pct">…</strong><span>test accuracy</span></div></div>
+      <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="test_f1_macro" data-fmt="pct">…</strong><span>test macro-F1</span></div></div>
+      <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="test_misclassified" data-fmt="int">…</strong><span>test errors</span></div></div>
+      <div class="col-6 col-md-2"><div class="card-soft kpi"><strong data-ov="n_test" data-fmt="int">…</strong><span>test records</span></div></div>
+    </div>
+    <div id="ov-error" class="alert alert-warning" role="alert" hidden></div>
+  </section>
+
+  <section class="mt-5" id="assessment">
+    <h2 class="h3">How recommendations and the selected-crop label are produced</h2>
+    <p><strong>Model support score.</strong> The model's predicted probability for each crop. It is used to rank crops. Scores from this model are very peaked, so the second and third crops often show "&lt;0.1%" while still being ranked in a meaningful order.</p>
+    <p><strong>Profile fit.</strong> For each of the seven inputs, the value scores 1 inside the crop's typical range (5th to 95th percentile of that crop's records) and falls linearly to 0 at one range-width beyond it. Profile fit is the average of the seven scores. It is a transparent similarity measure, not an agronomic optimum.</p>
+    <p>The selected-crop label combines the two:</p>
+    <div class="table-responsive">
+      <table class="table table-agro">
+        <thead><tr><th>Model component</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>High</td><td>ranked first and score of at least 0.60</td></tr>
+          <tr><td>Medium</td><td>ranked in the top three, or score of at least 0.10</td></tr>
+          <tr><td>Low</td><td>otherwise</td></tr>
+        </tbody>
+      </table>
+      <table class="table table-agro">
+        <thead><tr><th>Profile component</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Close</td><td>profile fit of at least 80% and at most one input outside the typical range</td></tr>
+          <tr><td>Partial</td><td>profile fit of at least 50%</td></tr>
+          <tr><td>Poor</td><td>otherwise</td></tr>
+        </tbody>
+      </table>
+      <table class="table table-agro">
+        <thead><tr><th>Model \ Profile</th><th>Close</th><th>Partial</th><th>Poor</th></tr></thead>
+        <tbody>
+          <tr><td>High</td><td><strong>Strong</strong></td><td>Moderate</td><td>Moderate</td></tr>
+          <tr><td>Medium</td><td>Moderate</td><td>Moderate</td><td><strong>Low</strong></td></tr>
+          <tr><td>Low</td><td>Moderate</td><td><strong>Low</strong></td><td><strong>Low</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">These thresholds are design choices that were checked on this dataset only. They are not validated agronomic standards. A caution appears when no crop matches your inputs closely (best profile fit below 80%).</p>
+  </section>
+
+  <section class="mt-5" id="limitations">
+    <h2 class="h3">Limitations</h2>
+    <ul>
+      <li>The dataset is described as augmented, and it looks unusually clean and well separated. High accuracy here does not mean the same accuracy on real farms; adding noise to the test inputs lowers accuracy sharply.</li>
+      <li>Scores and labels show similarity to dataset records. They are not probabilities of successful growth or yield.</li>
+      <li>The dataset has no soil texture, soil type, growth stages, daily weather or yield data, so none of these are used, and no stage-wise growth chart is shown. Such a feature would need a documented source of crop growth-stage requirements.</li>
+      <li>N, P and K are unitless ratios, so AgroWise gives no fertilizer quantities.</li>
+      <li>The time basis of temperature, humidity and rainfall is not stated in the source. Enter values on a comparable basis.</li>
+      <li>Typical ranges are data-derived and can be narrow. Real field readings may fall outside many of them.</li>
+      <li>Reference profiles and the model use the same dataset, so they are not independent confirmation of each other.</li>
+    </ul>
+  </section>
+
+  <section class="mt-5" id="references">
+    <h2 class="h3">References</h2>
+    <ol class="small">
+      <li>Mali, S. (2024). <em>Crop Recommendation dataset</em> (Version 2). Figshare. <a href="https://figshare.com/articles/dataset/Crop_Recommendation_dataset/26308696">figshare.com/articles/dataset/Crop_Recommendation_dataset/26308696</a></li>
+      <li>Pedregosa, F., et al. (2011). Scikit-learn: Machine learning in Python. <em>Journal of Machine Learning Research, 12</em>, 2825-2830.</li>
+      <li>Virtanen, P., et al. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python. <em>Nature Methods, 17</em>, 261-272.</li>
+      <li>Seabold, S., &amp; Perktold, J. (2010). Statsmodels: Econometric and statistical modeling with Python. <em>Proceedings of the 9th Python in Science Conference</em>.</li>
+      <li>McKinney, W. (2010). Data structures for statistical computing in Python. <em>Proceedings of the 9th Python in Science Conference</em>, 56-61.</li>
+      <li>Breiman, L. (2001). Random forests. <em>Machine Learning, 45</em>(1), 5-32.</li>
+      <li>Shapiro, S. S., &amp; Wilk, M. B. (1965). An analysis of variance test for normality (complete samples). <em>Biometrika, 52</em>(3-4), 591-611.</li>
+      <li>Welch, B. L. (1951). On the comparison of several mean values: An alternative approach. <em>Biometrika, 38</em>(3-4), 330-336.</li>
+      <li>Kruskal, W. H., &amp; Wallis, W. A. (1952). Use of ranks in one-criterion variance analysis. <em>Journal of the American Statistical Association, 47</em>(260), 583-621.</li>
+      <li>Brown, M. B., &amp; Forsythe, A. B. (1974). Robust tests for the equality of variances. <em>Journal of the American Statistical Association, 69</em>(346), 364-367.</li>
+      <li>Tukey, J. W. (1949). Comparing individual means in the analysis of variance. <em>Biometrics, 5</em>(2), 99-114.</li>
+      <li>Cohen, J. (1988). <em>Statistical power analysis for the behavioral sciences</em> (2nd ed.). Lawrence Erlbaum Associates.</li>
+      <li>Pallets Projects. <em>Flask documentation</em>. <a href="https://flask.palletsprojects.com/">flask.palletsprojects.com</a></li>
+      <li>Bootstrap documentation. <a href="https://getbootstrap.com/">getbootstrap.com</a></li>
+    </ol>
+  </section>
+</div>
+{% endblock %}

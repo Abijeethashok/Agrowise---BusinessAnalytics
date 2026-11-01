@@ -1,0 +1,60 @@
+{
+  "file": "Crop_recommendation.csv",
+  "rows": 2200,
+  "columns": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall",
+    "label"
+  ],
+  "missing_expected_columns": [],
+  "missing_values": {
+    "N": 0,
+    "P": 0,
+    "K": 0,
+    "temperature": 0,
+    "humidity": 0,
+    "ph": 0,
+    "rainfall": 0,
+    "label": 0
+  },
+  "duplicate_rows": 0,
+  "label_column": "label",
+  "n_classes": 22,
+  "class_counts": {
+    "rice": 100,
+    "maize": 100,
+    "chickpea": 100,
+    "kidneybeans": 100,
+    "pigeonpeas": 100,
+    "mothbeans": 100,
+    "mungbean": 100,
+    "blackgram": 100,
+    "lentil": 100,
+    "pomegranate": 100,
+    "banana": 100,
+    "mango": 100,
+    "grapes": 100,
+    "watermelon": 100,
+    "muskmelon": 100,
+    "apple": 100,
+    "orange": 100,
+    "papaya": 100,
+    "coconut": 100,
+    "cotton": 100,
+    "jute": 100,
+    "coffee": 100
+  },
+  "plausibility_violations": {
+    "ph outside 0-14": 0,
+    "humidity outside 0-100": 0,
+    "N negative": 0,
+    "P negative": 0,
+    "K negative": 0,
+    "rainfall negative": 0
+  }
+}

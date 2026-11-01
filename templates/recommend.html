@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% set active_page = 'recommend' %}
+{% block title %}Crop Recommendation{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-head">
+    <h1>Crop recommendation</h1>
+    <p class="text-muted-agro mb-0">Enter your field conditions. The trained model ranks the crops, and your chosen crop is checked against the dataset.</p>
+  </div>
+
+  <div class="row g-4 pb-4">
+    <div class="col-lg-5">
+      <div class="card-soft form-card">
+        <h2 class="h4 mb-3">Field conditions</h2>
+        <div id="form-alert" class="alert alert-danger" role="alert" hidden></div>
+        <form id="recommend-form" novalidate>
+          <div class="row g-3" id="field-grid">
+            <p class="text-muted-agro">Loading form…</p>
+          </div>
+
+          <div class="form-group-title">Crop you are considering (optional)</div>
+          <label class="form-label mt-2" for="f-selected_crop">Selected crop</label>
+          <select class="form-select" id="f-selected_crop" name="selected_crop" aria-describedby="help-selected_crop err-selected_crop"></select>
+          <div class="form-text" id="help-selected_crop">This is not an input to the model. It is only used to assess how well your conditions match that crop's records.</div>
+          <div class="invalid-feedback" id="err-selected_crop"></div>
+
+          <div class="d-grid gap-2 mt-4">
+            <button type="submit" class="btn btn-agro btn-lg" id="btn-recommend">Get recommendation</button>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-ghost flex-fill" id="btn-sample">Use sample input</button>
+              <button type="button" class="btn btn-ghost flex-fill" id="btn-reset">Reset</button>
+            </div>
+            <div class="sample-note" id="sample-note" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-7">
+      <div id="results" aria-live="polite" aria-busy="false">
+        <div class="results-placeholder">Your results will appear here after you submit the form.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.js"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+{% endblock %}

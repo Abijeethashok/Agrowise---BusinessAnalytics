@@ -1,0 +1,8 @@
+feature,outliers_pooled_iqr,outliers_within_crop_iqr,n
+N,0,0,2200
+P,138,0,2200
+K,200,0,2200
+temperature,86,0,2200
+humidity,30,0,2200
+ph,57,0,2200
+rainfall,100,0,2200

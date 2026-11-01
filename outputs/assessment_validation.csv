@@ -1,0 +1,3 @@
+selected_crop_is,n_evaluations,share_strong,share_moderate,share_low
+the TRUE crop,440,0.872727,0.127273,0.0
+a WRONG crop,9240,0.000108,0.0829,0.916991

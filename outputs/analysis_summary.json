@@ -1,0 +1,27 @@
+{
+  "n_rows": 2200,
+  "n_crops": 22,
+  "features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "alpha": 0.05,
+  "bonferroni_alpha": 0.0071428571428571435,
+  "normality_share_required": 0.8,
+  "files_written": [
+    "anova_assumptions.csv",
+    "anova_results.csv",
+    "correlation_pairs.csv",
+    "correlation_pearson.csv",
+    "correlation_spearman.csv",
+    "crop_wise_summary.csv",
+    "outlier_summary.csv",
+    "statistical_summary.csv",
+    "tukey_pairwise.csv"
+  ]
+}

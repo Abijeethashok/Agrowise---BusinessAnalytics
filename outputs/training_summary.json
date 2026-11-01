@@ -1,0 +1,23 @@
+{
+  "selected_model": "Gaussian Naive Bayes",
+  "selection_rule": "Highest mean CV macro-F1; models within 0.005 of the best are treated as tied, and the tie is broken by lowest mean CV log-loss (better probability estimates for ranking crops). The test set is not used for selection.",
+  "models_tied_on_f1": [
+    "Gaussian Naive Bayes",
+    "Random Forest"
+  ],
+  "random_guess_baseline_accuracy": 0.045454545454545456,
+  "n_train": 1760,
+  "n_test": 440,
+  "cv_folds": 5,
+  "tie_margin": 0.005,
+  "test_misclassified": 2,
+  "selected_test_metrics": {
+    "accuracy": 0.9954545454545455,
+    "precision_macro": 0.9958677685950413,
+    "recall_macro": 0.9954545454545454,
+    "f1_macro": 0.9954431533378901,
+    "f1_weighted": 0.9954431533378901,
+    "top3_accuracy": 1.0,
+    "log_loss": 0.015648238352057732
+  }
+}

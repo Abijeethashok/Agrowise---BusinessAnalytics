@@ -1,0 +1,8 @@
+feature,perm_importance_mean,perm_importance_std
+humidity,0.442841,0.017928
+K,0.433977,0.014436
+rainfall,0.356477,0.016203
+P,0.172614,0.01847
+N,0.156023,0.016251
+temperature,0.086023,0.010094
+ph,0.051477,0.006236
